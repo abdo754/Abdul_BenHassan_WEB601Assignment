@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { ContentList } from '../helper-file/content-list'; // Ensure this path is correct
-
+import { ContentList } from '../helper-file/content-list'; 
 @Component({
   selector: 'app-content-card',
   templateUrl: './content-card.component.html',
