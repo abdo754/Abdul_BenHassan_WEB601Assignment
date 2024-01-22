@@ -1,3 +1,5 @@
+// this is what display on th web 
+
 import { Component } from '@angular/core';
 import { ContentList } from '../helper-file/content-list';
 @Component({

@@ -1,3 +1,4 @@
+// these are the optinal properties
 export interface Content {
   id: number;
   title: string;

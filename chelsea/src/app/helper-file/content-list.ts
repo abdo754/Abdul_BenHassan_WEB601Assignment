@@ -1,3 +1,4 @@
+// got the content list so import so it can be used
 import { Content } from './content-interface';
 
 export class ContentList {
@@ -10,15 +11,16 @@ export class ContentList {
     get getContentArray(): Content[] {
         return this.contentArray;
     }
-
+// to add new Content item to the list
     add(contentItem: Content): void {
         this.contentArray.push(contentItem);
     }
-
+// counting the number of item
     count(): number {
         return this.contentArray.length;
     }
 
+    // display the output to the index 
     displayContent(index: number): string {
         if (index < 0 || index >= this.contentArray.length) {
             return 'Invalid index';
