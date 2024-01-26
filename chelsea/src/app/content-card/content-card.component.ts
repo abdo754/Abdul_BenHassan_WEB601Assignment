@@ -30,7 +30,7 @@ export class ContentCardComponent {
       creator: 'Abdulrhman',
       imgURL: 'https://arquitecturaviva.com/assets/uploads/obras/40781/av_thumb__av_imagen.webp'
     }
-    // Add more items as needed
+  
   ];
 
   constructor() {}
