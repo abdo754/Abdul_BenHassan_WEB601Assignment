@@ -6,9 +6,10 @@
 }
 
 .custom-card {
-  border: 1px solid #ddd;
-  margin-bottom: 20px;
-  width: 300px; /* Adjust based on your design preference */
+  border: 2px solid #ddd;
+  margin-bottom: 30px;
+  width: 500px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .first-card {
@@ -16,15 +17,35 @@
 }
 
 .card-img-top {
-  width: 100%; /* Ensure the image covers the width of the card */
-  height: 200px; /* Adjust based on your design preference */
-  object-fit: cover; /* Ensure the image covers the designated area without stretching */
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }
 
 .card-body {
   padding: 15px;
 }
 
-.card-title, .card-text {
+.card-title {
+  font-weight: bold;
+  color: #333;
   margin-bottom: 10px;
+}
+
+.card-text {
+  color: #666;
+  margin-bottom: 10px;
+}
+
+/* Hover Effects */
+.custom-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transform: scale(1.02);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .custom-card {
+    width: 100%;
+  }
 }
