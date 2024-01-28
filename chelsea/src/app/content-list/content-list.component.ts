@@ -52,5 +52,11 @@ export class ContentListComponent {
     }
 
   ];
+  constructor() { }
 
+  displayContentIdAndTitle(content: Content, event: MouseEvent): void {
+    console.log(`ID: ${content.id}, Title: ${content.title}`);
+    event.stopPropagation();
+  }
 }
+

@@ -1,0 +1,30 @@
+.page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+
+.custom-card {
+  border: 1px solid #ddd;
+  margin-bottom: 20px;
+  width: 300px; /* Adjust based on your design preference */
+}
+
+.first-card {
+  border: 2px solid black;
+}
+
+.card-img-top {
+  width: 100%; /* Ensure the image covers the width of the card */
+  height: 200px; /* Adjust based on your design preference */
+  object-fit: cover; /* Ensure the image covers the designated area without stretching */
+}
+
+.card-body {
+  padding: 15px;
+}
+
+.card-title, .card-text {
+  margin-bottom: 10px;
+}

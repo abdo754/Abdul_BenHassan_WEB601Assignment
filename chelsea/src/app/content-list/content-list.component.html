@@ -1,1 +1,5 @@
-<p>content-list works!</p>
+<div class="page-container">
+  <div *ngFor="let content of contentArray; let isFirst = first" (click)="displayContentIdAndTitle(content, $event)">
+    <app-content-card [content]="content" [isFirst]="isFirst"></app-content-card>
+  </div>
+</div>

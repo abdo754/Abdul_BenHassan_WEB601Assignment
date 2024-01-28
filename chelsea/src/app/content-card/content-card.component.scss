@@ -14,12 +14,19 @@
 }
 
 .custom-card {
-  background: linear-gradient(145deg, #ffffff, #e6e6e6);
-  border-radius: 10px;
-  margin: 15px;
-  overflow: hidden;
-  transition: transform 0.3s ease;
+  border: 1px solid;
+  margin: 10px;
+  padding: 10px;
 }
+
+.first-card {
+  border: 2px solid black;
+}
+
+.card-img-top {
+  cursor: pointer;
+}
+
 
 .custom-card:hover {
   transform: translateY(-5px);
