@@ -1,5 +1,7 @@
+// this code is for to display with content details
+
 import { Component, Input } from '@angular/core';
-import { Content } from '../helper-file/content-interface'; // Ensure this path matches the location of your Content interface
+import { Content } from '../helper-file/content-interface';
 
 @Component({
   selector: 'app-content-card', // The selector to use this component in HTML
@@ -8,7 +10,7 @@ import { Content } from '../helper-file/content-interface'; // Ensure this path 
 })
 export class ContentCardComponent {
   @Input() content!: Content; // Expects a Content object from the parent component
-  @Input() isFirst!: boolean; // Determines if this card is the first in the list for special styling
+  @Input() isFirst!: boolean; // Determines if this card is the first (list)
 
   displayContentIdAndTitle(content: Content, event: MouseEvent): void {
     console.log(`ID: ${content.id}, Title: ${content.title}`);
