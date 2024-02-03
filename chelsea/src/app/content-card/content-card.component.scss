@@ -12,6 +12,7 @@
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   max-width: 320px;
+
 }
 
 .custom-card {
@@ -19,8 +20,6 @@
   margin: 30px;
   padding: 30px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-
   width: 350px;
   height: auto;
 }

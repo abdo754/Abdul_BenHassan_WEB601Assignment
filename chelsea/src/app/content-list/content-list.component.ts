@@ -49,7 +49,14 @@ export class ContentListComponent {
     description: 'this player is on the youngest player in the team and he have already affect the team in the best way possblie ',
     creator: 'Abdulrhman',
     imgURL: 'https://assets.goal.com/v3/assets/bltcc7a7ffd2fbf71f5/blt1948385e6a9322dd/656c88f142f5a7040a9857e4/GOAL_-_Blank_WEB_-_Facebook_-_2023-12-03T135539.911.png?auto=webp&format=pjpg&width=3840&quality=60'
-    }
+    },
+    {
+      id: 7,
+      title: 'our top score of all time',
+      description: 'this player has the most goals for our team and his one of the best player too  ',
+      creator: 'Abdulrhman',
+      imgURL: 'https://m.media-amazon.com/images/M/MV5BNmU1NzhkODYtZWQwMC00YzNkLTlhNDgtOWRmNWE2ZDI4Y2ZiXkEyXkFqcGdeQXVyMjUyNDk2ODc@._V1_.jpg'
+      }
 
   ];
   constructor() { }
