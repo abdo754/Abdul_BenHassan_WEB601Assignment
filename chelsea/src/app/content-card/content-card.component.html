@@ -9,7 +9,7 @@
   <!-- used ngfor to directive  over each conten('contentList')-->
  <!-- Content-Card Component Template -->
  <div class="card custom-card" [ngClass]="{'first-card': isFirst}">
-  <img [src]="content.imgURL" class="card-img-top" alt="{{ content.title }}" (click)="displayContentIdAndTitle(content, $event)">
+  <img [src]="content.imgURL" class="card-img-top" alt="{{ content.title }}">
   <div class="card-body">
     <h5 class="card-title">{{ content.title }}</h5>
     <p class="card-text">{{ content.description }}</p>
