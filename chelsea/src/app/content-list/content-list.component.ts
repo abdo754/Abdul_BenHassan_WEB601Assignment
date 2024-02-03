@@ -59,11 +59,20 @@ export class ContentListComponent {
       }
 
   ];
+  searchTitle: string = '';
+  searchMessage: string = '';
+  searchMessageColor: string = '';
+
   constructor() { }
 
-  displayContentIdAndTitle(content: Content, event: MouseEvent): void {
-    console.log(`ID: ${content.id}, Title: ${content.title}`);
-    event.stopPropagation();
+ searchContent(): void {
+    const found = this.contentArray.some(content => content.title.toLowerCase() === this.searchTitle.toLowerCase());
+    if (found) {
+      this.searchMessage = 'Content item exists.';
+      this.searchMessageColor = 'green';
+    } else {
+      this.searchMessage = 'Content item does not exist.';
+      this.searchMessageColor = 'red';
+    }
   }
 }
-

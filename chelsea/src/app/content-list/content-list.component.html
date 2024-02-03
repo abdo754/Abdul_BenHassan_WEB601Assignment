@@ -1,5 +1,30 @@
-<div class="page-container">
-  <div *ngFor="let content of contentArray; let isFirst = first" (click)="displayContentIdAndTitle(content, $event)">
-    <app-content-card [content]="content" [isFirst]="isFirst"></app-content-card>
+<!-- Search Functionality -->
+<div class="search-container">
+  <input type="text" [(ngModel)]="searchTitle" placeholder="Search by title...">
+  <button (click)="searchContent()">Search</button>
+  <p *ngIf="searchMessage" [style.color]="searchMessageColor">{{ searchMessage }}</p>
+</div>
+
+<!-- Displaying Content Items Without a Type -->
+<div class="page-container no-type">
+  <h2>Content  Type</h2>
+  <div *ngFor="let content of contentArray | filterContentType" (click)="displayContentIdAndTitle(content, $event)">
+    <app-content-card [content]="content"></app-content-card>
+  </div>
+</div>
+
+<!-- Displaying Content Items of Type 'Sports' -->
+<div class="page-container sports">
+  <h2>Sports Content</h2>
+  <div *ngFor="let content of contentArray | filterContentType:'sports'" (click)="displayContentIdAndTitle(content, $event)">
+    <app-content-card [content]="content"></app-content-card>
+  </div>
+</div>
+
+<!-- Displaying Content Items of Type 'Review' -->
+<div class="page-container review">
+  <h2>Content of our team</h2>
+  <div *ngFor="let content of contentArray | filterContentType:'review'" (click)="displayContentIdAndTitle(content, $event)">
+    <app-content-card [content]="content"></app-content-card>
   </div>
 </div>
