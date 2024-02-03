@@ -4,7 +4,7 @@ import {Content} from '../helper-file/content-interface';
 @Component({
   selector: 'app-content-list',
   templateUrl: './content-list.component.html',
-  styleUrl: './content-list.component.scss'
+  styleUrls: ['./content-list.component.scss']
 })
 export class ContentListComponent {
   contentArray: Content[]=[
@@ -61,11 +61,11 @@ export class ContentListComponent {
   ];
   searchTitle: string = '';
   searchMessage: string = '';
-  searchMessageColor: string = '';
+  searchMessageColor: string = 'black';
 
   constructor() { }
 
- searchContent(): void {
+  searchContent(): void {
     const found = this.contentArray.some(content => content.title.toLowerCase() === this.searchTitle.toLowerCase());
     if (found) {
       this.searchMessage = 'Content item exists.';
