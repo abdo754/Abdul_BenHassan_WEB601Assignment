@@ -1,0 +1,13 @@
+<!-- Search Input -->
+<input type="text"
+       [value]="searchTitle"
+       (input)="searchTitle = ($event.target as HTMLInputElement).value"
+       placeholder="Search by title...">
+
+<!-- Search Button -->
+<button (click)="searchContent()">Search</button>
+
+<!-- Search Result Message -->
+<p *ngIf="searchMessage" [ngStyle]="{'color': searchMessageColor}">
+  {{ searchMessage }}
+</p>
