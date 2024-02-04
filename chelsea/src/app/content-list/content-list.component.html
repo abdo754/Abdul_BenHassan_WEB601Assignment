@@ -1,7 +1,8 @@
 <!-- Search Input -->
 <input type="text"
+       #searchInput
        [value]="searchTitle"
-       (input)="searchTitle = ($event.target as HTMLInputElement).value"
+       (input)="searchTitle = searchInput.value"
        placeholder="Search by title...">
 
 <!-- Search Button -->
