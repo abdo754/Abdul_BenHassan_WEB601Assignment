@@ -62,17 +62,22 @@ export class ContentListComponent {
   searchTitle: string = '';
   searchMessage: string = '';
   searchMessageColor: string = 'black';
+  highlightedContentIndex: number = -1;
 
-  constructor() { }
+  constructor() {}
 
   searchContent(): void {
-    const found = this.contentArray.some(content => content.title.toLowerCase() === this.searchTitle.toLowerCase());
-    if (found) {
+    const foundIndex = this.contentArray.findIndex(
+      (content) => content.title.toLowerCase() === this.searchTitle.toLowerCase()
+    );
+    if (foundIndex !== -1) {
       this.searchMessage = 'Content item exists.';
       this.searchMessageColor = 'green';
+      this.highlightedContentIndex = foundIndex;
     } else {
       this.searchMessage = 'Content item does not exist.';
       this.searchMessageColor = 'red';
+      this.highlightedContentIndex = -1;
     }
   }
 }

@@ -10,10 +10,10 @@ import { Content } from '../helper-file/content-interface';
 })
 export class ContentCardComponent {
   @Input() content!: Content; // Expects a Content object from the parent component
-  @Input() isFirst!: boolean; // Determines if this card is the first (list)
+  @Input() isFirst!: boolean; //  if this card is the first (list)
 
   displayContentIdAndTitle(content: Content, event: MouseEvent): void {
     console.log(`ID: ${content.id}, Title: ${content.title}`);
-    event.stopPropagation(); // Prevents the event from propagating to parent elements
+    event.stopPropagation(); // Prevents propagating to parent elements
   }
 }

@@ -1,3 +1,4 @@
+
 <!-- Search Input -->
 <input type="text"
        #searchInput
@@ -12,3 +13,44 @@
 <p *ngIf="searchMessage" [ngStyle]="{'color': searchMessageColor}">
   {{ searchMessage }}
 </p>
+
+<!-- Content List -->
+<div class="card" style="width: 18rem;" *ngFor="let content of contentArray" [ngClass]="{'content-highlight': highlightedContentIndex === content.id}">
+  <img [src]="content.imgURL" class="card-img-top" alt="{{ content.title }}">
+  <div class="card-body">
+    <h5 class="card-title">{{ content.title }}</h5>
+    <p class="card-text">{{ content.description }}</p>
+    <p>Creator: {{ content.creator }}</p>
+  </div>
+</div>
+
+
+<!--filtercontent type is for match the item for display and to find it -->
+<div>
+  <h2>Games</h2>
+  <li>game one</li>
+  <li>game two </li>
+  <li>game three</li>
+  <div *ngFor="let content of contentArray | filterContentType:'games'">
+    {{ content.title }}
+  </div>
+
+  <h2>Trophies</h2>
+  <li>oldest one</li>
+  <li>newest one</li>
+  <li>all</li>
+  <div *ngFor="let content of contentArray | filterContentType:'trophy'">
+    {{ content.title }}
+  </div>
+
+  <h2>Goals</h2>
+  <li>top goals</li>
+  <li>easy goal</li>
+  <li>all</li>
+
+  <div *ngFor="let content of contentArray | filterContentType:'goals'">
+    {{ content.title }}
+
+  </div>
+</div>
+
