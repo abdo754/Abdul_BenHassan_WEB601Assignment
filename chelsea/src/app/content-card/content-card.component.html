@@ -9,14 +9,24 @@
   <!-- used ngfor to directive  over each conten('contentList')-->
  <!-- Content-Card Component Template -->
  <div class="card custom-card" [ngClass]="{'first-card': isFirst}">
-  <img [src]="content.imgURL" class="card-img-top" alt="{{ content.title }}">
+  <!-- Display content image or default image -->
+  <img *ngIf="content.imgURL; else defaultImage" [src]="content.imgURL" class="card-img-top" alt="{{ content.title }}">
+  <ng-template #defaultImage>
+    <img src="assests/Chelsea_FC.png" class="card-img-top" alt="Default Image">
+  </ng-template>
+
   <div class="card-body">
     <h5 class="card-title">{{ content.title }}</h5>
     <p class="card-text">{{ content.description }}</p>
     <p>Creator: {{ content.creator }}</p>
-    <!-- Display type and tags if they exist(ngif) -->
-    <p *ngIf="content.type">Type: {{ content.type }}</p>
-    <p *ngIf="content.tags">Tags: <span *ngFor="let tag of content.tags">{{ tag }}</span></p>
+
+    <!-- Display type with HoverAffect directive -->
+    <p *ngIf="content.type" [hoverAffect]="'underline'">Type: {{ content.type }}</p>
+
+    <!-- Display tags with HoverAffect directive -->
+    <p *ngIf="content.tags">Tags:
+      <span *ngFor="let tag of content.tags" [hoverAffect]="'bold'">{{ tag }}</span>
+    </p>
   </div>
 </div>
 

@@ -1,7 +1,9 @@
+
 <!-- Search Input -->
 <input type="text"
+       #searchInput
        [value]="searchTitle"
-       (input)="searchTitle = ($event.target as HTMLInputElement).value"
+       (input)="searchTitle = searchInput.value"
        placeholder="Search by title...">
 
 <!-- Search Button -->
@@ -11,3 +13,36 @@
 <p *ngIf="searchMessage" [ngStyle]="{'color': searchMessageColor}">
   {{ searchMessage }}
 </p>
+
+<!-- Content List -->
+<div class="card" style="width: 18rem;" *ngFor="let content of contentArray" [ngClass]="{'content-highlight': highlightedContentIndex === content.id}">
+  <img [src]="content.imgURL" class="card-img-top" alt="{{ content.title }}">
+  <div class="card-body">
+    <h5 class="card-title">{{ content.title }}</h5>
+    <p class="card-text">{{ content.description }}</p>
+    <p>Creator: {{ content.creator }}</p>
+  </div>
+  <!--filtercontent type is for match the item for display and to find it -->
+<div>
+  <div *ngFor="let content of contentArray | filterContentType:'player'">
+    {{ content.type }}
+    <p class="card-text">{{ content.description }}</p>
+
+  </div>
+
+  <div *ngFor="let content of contentArray | filterContentType:'year'">
+    {{ content.type }}
+    <p class="card-text">{{ content.description }}</p>
+  </div>
+
+  <div *ngFor="let content of contentArray | filterContentType:'stadium'">
+    {{ content.type }}
+    <p class="card-text">{{ content.description }}</p>
+
+  </div>
+</div>
+
+</div>
+
+
+
