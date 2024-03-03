@@ -69,7 +69,16 @@ export class ContentListComponent {
       imgURL: 'https://m.media-amazon.com/images/M/MV5BNmU1NzhkODYtZWQwMC00YzNkLTlhNDgtOWRmNWE2ZDI4Y2ZiXkEyXkFqcGdeQXVyMjUyNDk2ODc@._V1_.jpg',
       type:""
 
+      },
+      {
+        id: 8,
+        title: 'our team',
+        description: 'our team',
+        creator: 'Abdulrhman',
+        imgURL: undefined, // Added missing comma here
+        type: "" // No comma needed after the last property
       }
+
 
   ];
   searchTitle: string = '';
@@ -92,5 +101,9 @@ export class ContentListComponent {
       this.searchMessageColor = 'red';
       this.highlightedContentIndex = -1;
     }
+  }
+  addNewContent(newContent: Content) {
+    const clonedContent = { ...newContent };
+    this.contentArray.push(clonedContent);
   }
 }

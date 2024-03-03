@@ -1,0 +1,42 @@
+<div class="create-content-form">
+  <h3>Create New Content</h3>
+  <div class="create-content-form">
+    <h3>Create New Content</h3>
+    <form>
+      <!-- ID Field -->
+      <div>
+        <label for="id">ID:</label>
+        <input type="number" id="id" name="id" [(ngModel)]="newContent.id">
+      </div>
+
+      <!-- Title Field -->
+      <div>
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" [(ngModel)]="newContent.title">
+      </div>
+
+      <!-- Description Field -->
+      <div>
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" [(ngModel)]="newContent.description"></textarea>
+      </div>
+
+      <!-- Creator Field -->
+      <div>
+        <label for="creator">Creator:</label>
+        <input type="text" id="creator" name="creator" [(ngModel)]="newContent.creator">
+      </div>
+
+      <!-- Image URL Field -->
+      <div>
+        <label for="imgURL">Image URL:</label>
+        <input type="text" id="imgURL" name="imgURL" [(ngModel)]="newContent.imgURL">
+      </div>
+
+      <!-- Create Button -->
+      <button type="button" (click)="createContent()">Create</button>
+
+      <!-- Error Message Display -->
+      <p *ngIf="errorMessage" style="color: red; font-weight: bold;">{{ errorMessage }}</p>
+    </form>
+  </div>
