@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { Content } from '../helper-file/content-interface'; // Ensure this path matches your project structure
+import { Component, EventEmitter, Output } from '@angular/core';
+import { Content } from '../helper-file/content-interface';
 
 @Component({
   selector: 'app-create-content',
@@ -8,45 +8,34 @@ import { Content } from '../helper-file/content-interface'; // Ensure this path 
 })
 export class CreateContentComponent {
   newContent: Content = {
-    id: 0, // Initialized to 0 as a placeholder
+    id: null,
     title: '',
     description: '',
     creator: '',
     imgURL: ''
   };
 
-  errorMessage: string = '';
+  //allow the content to be send out
+  @Output() contentAdded = new EventEmitter<Content>();
+  errorMessage: string = ''; // This property is correctly declared to hold error messages.
 
   createContent() {
-    this.addContent(this.newContent).then((title) => {
-      console.log(`Addition successful: ${title}`);
-      this.clearForm();
-      this.errorMessage = ''; // Clear any existing error message
-    }).catch((error) => {
-      this.errorMessage = 'Content failed to be added.';
-    });
+    if (this.validateContent(this.newContent)) { // Adding a validation step before emitting the content
+      this.contentAdded.emit({ ...this.newContent, id: Date.now() }); // Emit a copy with a new ID
+      this.clearForm(); // Clear the form fields
+    } else {
+      this.errorMessage = 'Please fill in all required fields'; // Show an error message if validation fails
+    }
   }
 
-  addContent(content: Content): Promise<string> {
-    return new Promise((resolve, reject) => {
-      // Simulate an API call with setTimeout
-      setTimeout(() => {
-        if (content.title) { // Assuming 'title' is mandatory for a successful addition
-          resolve(content.title);
-        } else {
-          reject('Failed to add content'); // Reject the promise if some condition isn't met
-        }
-      }, 1000); // Simulate a delay for async operation
-    });
+  // Utility method to validate content
+  validateContent(content: Content): boolean {
+    return content.title.trim().length > 0; // Basic validation to ensure the title is not empty
   }
 
+  // Utility method to clear the form
   clearForm() {
-    this.newContent = {
-      id: 0, // Reset 'id' to 0 or any placeholder value
-      title: '',
-      description: '',
-      creator: '',
-      imgURL: ''
-    };
+    this.newContent = { id: null, title: '', description: '', creator: '', imgURL: '' };
+    this.errorMessage = ''; // Also clear any existing error message
   }
-}
+} 

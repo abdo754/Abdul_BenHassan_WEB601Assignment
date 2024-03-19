@@ -1,4 +1,4 @@
-
+<app-create-content (contentAdded)="addNewContent($event)"></app-create-content>
 <!-- Search Input -->
 <input type="text"
        #searchInput
@@ -24,7 +24,7 @@
   </div>
   <!--filtercontent type is for match the item for display and to find it -->
 <div>
-  <div *ngFor="let content of contentArray | filterContentType:'player'">
+  <div *ngFor="let content of contentArray">
     {{ content.type }}
     <p class="card-text">{{ content.description }}</p>
 
@@ -42,7 +42,6 @@
   </div>
 </div>
 
-</div>
 
 
 
